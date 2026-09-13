@@ -1,158 +1,293 @@
-# Dev Stack
+# 🧱 Dev Stack
 
-### Explore technologies. Build your development stack.
+### Explore Technologies. Build Your Development Stack.
 
-Dev Stack is a React assignment project for exploring development technologies and choosing a custom stack. The planned experience brings technology cards and a selection panel together so users can review tools, add their choices, and manage everything in one place.
+**Dev Stack** is a responsive React application where users can explore popular web development technologies and create their own personalized development stack.
 
-> **Status: In development.** The current project contains a React + TypeScript starter with Vite, Tailwind CSS, and DaisyUI configured. The features below describe the intended assignment implementation.
+Users can browse technology cards, check information such as category, difficulty, rating, and description, and add their preferred technologies to the **Your Stack** section. Technologies can also be removed individually or cleared from the stack.
 
-**Live site:** Coming soon  
-**Repository:** Add your GitHub repository link here
+🔗 **Live Site:** https://devstack404.netlify.app/
 
-## Three Core Features — Planned
+🔗 **GitHub Repository:** https://github.com/Ayman392/Dev-Stack
 
-1. **Explore a technology catalog** — Browse 10–15 technologies loaded from a separate JSON file. Each card will display an icon, name, description, category, difficulty, rating, and badge.
-2. **Build and manage your stack** — Add technologies to a “Your Stack” panel, track the selected count, prevent duplicate selections, remove individual items, or clear the entire stack. Selected cards will show a disabled “✓ Added to Stack” button.
-3. **Use the builder across devices** — Browse a responsive card grid with one column on mobile, two on tablets, and three on desktop, supported by a mobile menu, loading feedback, and toast notifications.
+---
 
-## Technology Stack
+## 🛠️ Technologies Used
 
-| Technology | Role | Current status |
-| --- | --- | --- |
-| React 19 | Component-based interface | Installed |
-| TypeScript 6 | Typed application code | Configured |
-| Vite 8 | Development server and production build | Configured |
-| Tailwind CSS 4 | Utility-based styling | Configured through the Vite plugin |
-| DaisyUI 5 | UI component styles | Installed and enabled in CSS |
-| ESLint 10 | Code linting | Configured |
-| React-Toastify | Notifications for stack actions | Planned; not yet installed |
-| JSON | Local technology catalog | Planned; data file not yet created |
+- React.js
+- TypeScript
+- Tailwind CSS
+- DaisyUI
+- Vite
+- React Toastify
+- JSON
+- HTML5
+- CSS3
 
-## Assignment Scope
+---
 
-- Sticky navigation with branding, Home, Technologies, Projects, About, and Contact links, plus Sign In and Sign Up buttons.
-- Mobile navigation with a hamburger icon, centered logo, and account buttons.
-- Hero section with a two-tone heading, description, illustration, and Explore Technologies / Learn More buttons.
-- A stack sidebar with an empty state and selected items showing their icon, name, category, and remove button.
-- React-Toastify feedback for additions, duplicate attempts, individual removals, and clearing the stack.
-- A loading indicator while fetching the local JSON catalog.
-- One centrally defined orange-to-pink-to-violet gradient shared by the brand, heading highlight, and primary buttons.
-- Footer with branding, social links, Product / Company / Legal groups, and copyright information.
+## ✨ Three Core Features
 
-Sign In and Sign Up are part of the required interface; authentication is not specified in the assignment. Search, filtering, and saved selections are also outside the stated requirements.
+### 1. 🔍 Explore Development Technologies
 
-## Run Locally
+Users can explore different development technologies loaded dynamically from a JSON file.
 
-Use Node.js 22.13 or a later 22.x release, or Node.js 24, with npm. These versions satisfy the Node engine ranges in the inspected Vite and ESLint packages.
+Each technology card displays useful information such as:
 
-1. Clone your repository, replacing the placeholders:
+- Technology name
+- Icon
+- Description
+- Category
+- Difficulty level
+- Rating
+- Badge
 
-   ```bash
-   git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git
-   cd YOUR_REPOSITORY
-   ```
+This makes it easier for users to learn about different technologies before adding them to their stack.
 
-2. Open the application directory containing `package.json`. In the supplied archive, this is `Assignment-05/Dev Stack`.
+### 2. 🧰 Build and Manage Your Own Stack
 
-3. Install dependencies and start the development server:
+Users can create their own development stack by clicking the **Add to Stack** button.
 
-   ```bash
-   npm ci
-   npm run dev
-   ```
+The application:
 
-4. Open the local address printed in the terminal.
+- Adds the selected technology to the **Your Stack** section
+- Prevents the same technology from being added twice
+- Shows the number of selected technologies
+- Allows individual technologies to be removed
+- Provides a **Remove All** option to clear the entire stack
+- Disables the button after a technology has already been selected
 
-> The uploaded starter's `App.tsx` does not currently return its JSX. It needs a valid component return before it can render the application successfully. The commands above are taken from the project configuration; a successful build has not yet been verified.
+### 3. 📱 Responsive and Interactive UI
 
-### Available Scripts
+Dev Stack is designed to work across different screen sizes, including mobile, tablet, and desktop.
 
-| Command | Purpose |
-| --- | --- |
-| `npm run dev` | Start the Vite development server |
-| `npm run build` | Run the TypeScript build check and create a production build |
-| `npm run lint` | Run ESLint |
-| `npm run preview` | Preview a completed production build locally |
+The application also provides interactive feedback using **React Toastify** when users add or remove technologies from their stack.
 
-## Current Project Structure
+---
 
-Selected files from the application folder in the uploaded archive:
+# ❓ React Questions & Answers
 
-```text
-Dev Stack/
-├── public/
-│   ├── favicon.svg
-│   └── icons.svg
-├── src/
-│   ├── assets/
-│   │   ├── hero.png
-│   │   ├── react.svg
-│   │   └── vite.svg
-│   ├── App.tsx
-│   ├── App.css
-│   ├── index.css
-│   └── main.tsx
-├── index.html
-├── package.json
-├── package-lock.json
-├── eslint.config.js
-├── tsconfig.json
-└── vite.config.ts
-```
+## 1. What is JSX, and why is it used in React?
 
-The archive also contains a separate `B14-A05-DevStack` reference folder with assignment instructions, design files, brand assets, and UI images. It is not the React application folder.
+JSX is a syntax that allows us to write HTML-like code inside JavaScript or TypeScript.
 
-## Deployment
+React uses JSX because it makes creating and understanding user interfaces much easier. Instead of creating HTML elements using separate JavaScript commands, we can write the UI directly inside our React components.
 
-After implementing the application and resolving build errors:
-
-1. Run `npm run lint` and `npm run build`.
-2. Connect the application repository to your chosen static hosting provider.
-3. Set the project root to the directory containing `package.json`, the build command to `npm run build`, and the output directory to `dist`.
-4. Add the published URL to the Live site field above.
-
-## Assignment Reference
-
-Based on Programming Hero's [B14-A05-DevStack assignment](https://github.com/ProgrammingHero1/B14-A05-DevStack). The assignment provides the requirements and visual references; this repository is intended to contain the React implementation.
-
-Before submission, update this README to reflect completed features, add the repository and live-site links, and confirm at least eight meaningful Git commits. Review the answers below in your own words and update the project examples to match your implementation.
-
-## React Questions and Answers
-
-*The project examples below describe the planned implementation because the uploaded starter does not yet contain this functionality.*
-
-### 1. What is JSX, and why is it used in React?
-
-JSX lets me describe a user interface using HTML-like markup inside JavaScript. It makes component layouts easier to read and lets me include expressions and dynamic values. In this TypeScript project, JSX is written in `.tsx` files.
-
-### 2. What is the difference between props and state?
-
-Props are values a component receives from its parent. State is data a component manages that can change over time. A technology card will receive technology details through props, while the selected stack will be managed as state.
-
-### 3. What does the `useState` hook do, and where did you use it in this project?
-
-`useState` stores a value between renders and provides a function to update it. I plan to use it for the loaded technologies, selected stack, and loading status. These uses are not implemented in the current starter.
-
-### 4. What does the `useEffect` hook do, and why did you need it to load the JSON data?
-
-`useEffect` runs code after rendering to synchronize a component with something outside React, such as a data request. I plan to use an effect to fetch the JSON catalog when the component mounts, update the technology state, and finish the loading state. This keeps fetching out of the component's render logic.
-
-### 5. Why does every item in a `.map()` list need a unique `key` prop?
-
-A key helps React identify which list items were added, removed, or updated. I plan to use each technology's stable `id` as its key. Keys must be unique among siblings in that list.
-
-### 6. What is conditional rendering? Show one place you used it.
-
-Conditional rendering displays different content depending on a condition. The planned stack panel will show an empty message when nothing is selected and the selected items otherwise. For example, its empty message could be rendered like this:
+For example:
 
 ```tsx
-{selectedStack.length === 0 && (
-  <p>Your stack is empty. Add a technology to get started.</p>
+const title = <h1>Welcome to Dev Stack</h1>;
+```
+
+In this project, I used JSX/TSX to create components such as technology cards, the navbar, the stack section, and other UI elements.
+
+---
+
+## 2. What is the difference between props and state?
+
+**Props** are used to pass data from a parent component to a child component.
+
+For example, a parent component can pass technology information to a Technology Card using props.
+
+**State**, on the other hand, is data managed inside a component that can change while the application is running.
+
+In simple words:
+
+- **Props → data received from another component**
+- **State → data that can change inside the application**
+
+For example, the list of selected technologies in Dev Stack is managed using state.
+
+---
+
+## 3. What does the `useState` hook do, and where did you use it in this project?
+
+The `useState` hook allows a React component to store and update data.
+
+When the state changes, React automatically re-renders the component to show the updated information.
+
+In this project, I used `useState` to manage data such as the selected technologies in **Your Stack**.
+
+For example:
+
+```tsx
+const [selectedStack, setSelectedStack] = useState([]);
+```
+
+When a user adds or removes a technology, the state is updated and React updates the UI automatically.
+
+---
+
+## 4. What does the `useEffect` hook do, and why did you need it to load the JSON data?
+
+The `useEffect` hook is used to perform side effects after a React component renders.
+
+One common use of `useEffect` is loading data.
+
+In this project, I used it to fetch the technology information from the JSON file when the application loads.
+
+For example:
+
+```tsx
+useEffect(() => {
+  fetch("/technologies.json")
+    .then(res => res.json())
+    .then(data => setTechnologies(data));
+}, []);
+```
+
+The empty dependency array `[]` means the effect runs when the component is first loaded.
+
+This allows the technology data to be loaded without hardcoding the entire technology array inside the component.
+
+---
+
+## 5. Why does every item in a `.map()` list need a unique `key` prop?
+
+When we use `.map()` to display multiple elements, React needs a unique `key` for each item.
+
+The key helps React identify which item has been:
+
+- Added
+- Removed
+- Updated
+
+For example:
+
+```tsx
+{technologies.map(technology => (
+  <TechnologyCard
+    key={technology.id}
+    technology={technology}
+  />
+))}
+```
+
+Here, `technology.id` is used as the key because every technology has a unique ID.
+
+This helps React update lists efficiently.
+
+---
+
+## 6. What is conditional rendering? Show one place you used it.
+
+Conditional rendering means showing different UI elements depending on a condition.
+
+For example, in the **Your Stack** section, I can check whether the user has selected any technology.
+
+```tsx
+{selectedStack.length === 0 ? (
+  <p>Your stack is empty.</p>
+) : (
+  <StackList technologies={selectedStack} />
 )}
 ```
 
-This is an illustrative example, not code already present in the starter.
+If there are no selected technologies, the application displays an empty-stack message.
 
-### 7. How do you pass data from a parent to a child, and how does a child send something back?
+If technologies have been selected, it displays those technologies instead.
 
-A parent passes data and callback functions through props. A child calls a callback to notify the parent about an action. For this project, the parent will pass a technology and an `onAdd` callback to a card; clicking Add to Stack will call `onAdd(technology)` so the parent can update the selected stack.
+---
+
+## 7. How do you pass data from a parent component to a child component, and how does a child send something back to the parent?
+
+A parent component passes data to a child component using **props**.
+
+For example:
+
+```tsx
+<TechnologyCard technology={technology} />
+```
+
+Here, the parent sends the `technology` object to the `TechnologyCard` component.
+
+A child component can communicate back to its parent using a callback function passed through props.
+
+For example:
+
+```tsx
+<TechnologyCard
+  technology={technology}
+  onAdd={handleAddTechnology}
+/>
+```
+
+Inside the child component:
+
+```tsx
+<button onClick={() => onAdd(technology)}>
+  Add to Stack
+</button>
+```
+
+When the button is clicked, the child calls the parent's function.
+
+So the basic idea is:
+
+**Parent → Child:** Data through props
+
+**Child → Parent:** Callback function through props
+
+---
+
+## 🚀 Run the Project Locally
+
+Clone the repository:
+
+```bash
+git clone https://github.com/Ayman392/Dev-Stack.git
+```
+
+Go to the project directory:
+
+```bash
+cd Dev-Stack
+```
+
+Install the dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+Then open the local URL shown by Vite in your browser.
+
+---
+
+## 🌐 Deployment
+
+The project is deployed on **Netlify**.
+
+**Live Website:**
+
+https://devstack404.netlify.app/
+
+---
+
+## 👨‍💻 Author
+
+**Ayman**
+
+GitHub: https://github.com/Ayman392
+
+---
+
+## 🔗 Project Links
+
+**Live Site:**  
+https://devstack404.netlify.app/
+
+**GitHub Repository:**  
+https://github.com/Ayman392/Dev-Stack
+
+---
+
+<p align="center">
+  Made with React ⚛️ + TypeScript 💙
+</p>
