@@ -1,4 +1,4 @@
-import Banner from '../assets/hero.png'
+import Banner from "../assets/hero.png";
 
 function Hero() {
   return (
@@ -15,9 +15,9 @@ function Hero() {
           </h1>
 
           <p className="mx-auto mt-5 max-w-lg text-base leading-relaxed text-slate-600 lg:mx-0">
-            Explore frontend, backend, database, and tooling options,
-            compare them side by side, and put together the stack that
-            fits your next project.
+            Explore frontend, backend, database, and tooling options, compare
+            them side by side, and put together the stack that fits your next
+            project.
           </p>
 
           <div className="mt-8 flex flex-wrap justify-center gap-3 lg:justify-start">
@@ -45,7 +45,7 @@ function Hero() {
         />
       </div>
     </section>
-  )
+  );
 }
 
-export default Hero
+export default Hero;

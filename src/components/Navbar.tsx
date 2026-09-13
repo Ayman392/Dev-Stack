@@ -1,15 +1,27 @@
-import Logo from '../assets/Logo.png'
+import Logo from "../assets/Logo.png";
 
 function Navbar() {
   const links = (
     <>
-      <li><a href="#home" className="text-pink-600">Home</a></li>
-      <li><a href="#technologies">Technologies</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li>
+        <a href="#home" className="text-pink-600">
+          Home
+        </a>
+      </li>
+      <li>
+        <a href="#technologies">Technologies</a>
+      </li>
+      <li>
+        <a href="#projects">Projects</a>
+      </li>
+      <li>
+        <a href="#about">About</a>
+      </li>
+      <li>
+        <a href="#contact">Contact</a>
+      </li>
     </>
-  )
+  );
 
   return (
     <header className="bg-white shadow-sm sticky top-0 z-50">
@@ -51,11 +63,7 @@ function Navbar() {
           href="/"
           className="absolute left-1/2 flex -translate-x-1/2 items-center gap-2 lg:static lg:translate-x-0"
         >
-          <img
-            src={Logo}
-            alt="Dev Stack logo"
-            className="h-8 w-auto"
-          />
+          <img src={Logo} alt="Dev Stack logo" className="h-8 w-auto" />
 
           <span className="whitespace-nowrap text-xl font-bold text-slate-900 lg:text-xl">
             Dev<span className="text-pink-600">Stack</span>
@@ -85,7 +93,7 @@ function Navbar() {
         </div>
       </nav>
     </header>
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;

@@ -1,4 +1,4 @@
-import Logo from '../assets/Logo.png'
+import Logo from "../assets/Logo.png";
 
 function Footer() {
   return (
@@ -9,11 +9,7 @@ function Footer() {
           {/* Brand name*/}
           <div className="col-span-2 lg:col-span-2">
             <a href="/" className="inline-flex items-center gap-2">
-              <img
-                src={Logo}
-                alt="Dev Stack logo"
-                className="h-7 w-auto"
-              />
+              <img src={Logo} alt="Dev Stack logo" className="h-7 w-auto" />
 
               <span className="text-lg font-semibold text-slate-900">
                 Dev<span className="text-pink-600">Stack</span>
@@ -21,21 +17,15 @@ function Footer() {
             </a>
 
             <p className="mt-3 max-w-xs text-sm leading-relaxed text-slate-500">
-              Curated tools, technologies, and resources for developers
-              building modern software.
+              Curated tools, technologies, and resources for developers building
+              modern software.
             </p>
 
             <div className="mt-5 flex gap-5 text-sm text-slate-700">
-              <a
-                href="https://github.com/"
-                className="hover:text-pink-600"
-              >
+              <a href="https://github.com/" className="hover:text-pink-600">
                 GitHub
               </a>
-              <a
-                href="https://twitter.com/"
-                className="hover:text-pink-600"
-              >
+              <a href="https://twitter.com/" className="hover:text-pink-600">
                 Twitter
               </a>
               <a
@@ -120,9 +110,7 @@ function Footer() {
 
         {/* Bottom bar */}
         <div className="flex flex-col items-center justify-between gap-4 border-t border-slate-100 py-6 text-xs text-slate-400 sm:flex-row">
-          <p>
-            © {new Date().getFullYear()} Dev Stack. All rights reserved.
-          </p>
+          <p>© {new Date().getFullYear()} Dev Stack. All rights reserved.</p>
 
           <div className="flex gap-6">
             <a href="#privacy" className="hover:text-pink-600">
@@ -135,7 +123,7 @@ function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }
 
-export default Footer
+export default Footer;

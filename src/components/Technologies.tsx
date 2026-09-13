@@ -1,101 +1,100 @@
-import { useEffect, useState } from 'react'
-import { ToastContainer, toast } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
-
+import { useEffect, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 type Technology = {
-  id: string
-  name: string
-  category: string
-  description: string
-  icon: string
-  rating: number
-  difficulty: string
-  badge: string
-}
+  id: string;
+  name: string;
+  category: string;
+  description: string;
+  icon: string;
+  rating: number;
+  difficulty: string;
+  badge: string;
+};
 
 const badgeColors: Record<string, string> = {
-  Popular: 'border-sky-100 bg-sky-50 text-sky-600',
-  Versatile: 'border-emerald-100 bg-emerald-50 text-emerald-600',
-  Fast: 'border-orange-100 bg-orange-50 text-orange-600',
-  'Full Stack': 'border-violet-100 bg-violet-50 text-violet-600',
-  Standard: 'border-emerald-100 bg-emerald-50 text-emerald-600',
-  'Top SQL': 'border-blue-100 bg-blue-50 text-blue-600',
-  Cache: 'border-red-100 bg-red-50 text-red-500',
-  Ubiquitous: 'border-amber-100 bg-amber-50 text-amber-600',
-  Essential: 'border-sky-100 bg-sky-50 text-sky-600',
-  Robust: 'border-sky-100 bg-sky-50 text-sky-600',
-  Modern: 'border-cyan-100 bg-cyan-50 text-cyan-600',
-  Containers: 'border-sky-100 bg-sky-50 text-sky-600',
-}
+  Popular: "border-sky-100 bg-sky-50 text-sky-600",
+  Versatile: "border-emerald-100 bg-emerald-50 text-emerald-600",
+  Fast: "border-orange-100 bg-orange-50 text-orange-600",
+  "Full Stack": "border-violet-100 bg-violet-50 text-violet-600",
+  Standard: "border-emerald-100 bg-emerald-50 text-emerald-600",
+  "Top SQL": "border-blue-100 bg-blue-50 text-blue-600",
+  Cache: "border-red-100 bg-red-50 text-red-500",
+  Ubiquitous: "border-amber-100 bg-amber-50 text-amber-600",
+  Essential: "border-sky-100 bg-sky-50 text-sky-600",
+  Robust: "border-sky-100 bg-sky-50 text-sky-600",
+  Modern: "border-cyan-100 bg-cyan-50 text-cyan-600",
+  Containers: "border-sky-100 bg-sky-50 text-sky-600",
+};
 
 function Technologies() {
-  const [technologies, setTechnologies] = useState<Technology[]>([])
-  const [selectedStack, setSelectedStack] = useState<Technology[]>([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState('')
+  const [technologies, setTechnologies] = useState<Technology[]>([]);
+  const [selectedStack, setSelectedStack] = useState<Technology[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
   useEffect(() => {
-    const controller = new AbortController()
+    const controller = new AbortController();
 
     async function loadTechnologies() {
       try {
-        const response = await fetch('/technologies.json', {
+        const response = await fetch("/technologies.json", {
           signal: controller.signal,
-        })
+        });
 
         if (!response.ok) {
-          throw new Error('Failed to load technologies')
+          throw new Error("Failed to load technologies");
         }
 
-        const data: Technology[] = await response.json()
+        const data: Technology[] = await response.json();
 
         if (!controller.signal.aborted) {
-          setTechnologies(data)
+          setTechnologies(data);
         }
       } catch {
         if (!controller.signal.aborted) {
-          setError('Could not load technologies. Please refresh to try again.')
+          setError("Could not load technologies. Please refresh to try again.");
         }
       } finally {
         if (!controller.signal.aborted) {
-          setLoading(false)
+          setLoading(false);
         }
       }
     }
 
-    loadTechnologies()
+    loadTechnologies();
 
-    return () => controller.abort()
-  }, [])
+    return () => controller.abort();
+  }, []);
 
   function addToStack(technology: Technology) {
     if (selectedStack.some((item) => item.id === technology.id)) {
-      toast.warn(`${technology.name} is already in your stack!`)
-      return
+      toast.warn(`${technology.name} is already in your stack!`);
+      return;
     }
 
     setSelectedStack((current) =>
       current.some((item) => item.id === technology.id)
         ? current
         : [...current, technology],
-    )
-    toast.success(`${technology.name} added to your stack!`)
+    );
+    toast.success(`${technology.name} added to your stack!`);
   }
 
   function removeFromStack(id: string) {
-    const technology = selectedStack.find((item) => item.id === id)
-    if (!technology) return
+    const technology = selectedStack.find((item) => item.id === id);
+    if (!technology) return;
 
-    setSelectedStack((current) => current.filter((item) => item.id !== id))
-    toast.info(`${technology.name} removed from your stack`)
+    setSelectedStack((current) => current.filter((item) => item.id !== id));
+    toast.info(`${technology.name} removed from your stack`);
   }
 
   function clearStack() {
-    if (selectedStack.length === 0) return
+    if (selectedStack.length === 0) return;
 
-    setSelectedStack([])
-    toast.info('Stack cleared')
+    setSelectedStack([]);
+    toast.info("Stack cleared");
   }
   return (
     <section id="technologies" className="bg-white py-12">
@@ -112,8 +111,7 @@ function Technologies() {
         {/* Section heading */}
         <div className="mb-8">
           <h2 className="text-3xl font-bold tracking-tight text-slate-900">
-            Explore the{' '}
-            <span className="text-pink-500">Technologies</span>
+            Explore the <span className="text-pink-500">Technologies</span>
           </h2>
 
           <p className="mt-2 text-sm text-slate-500">
@@ -140,15 +138,15 @@ function Technologies() {
               {technologies.map((technology) => {
                 const isAdded = selectedStack.some(
                   (item) => item.id === technology.id,
-                )
+                );
 
                 return (
                   <article
                     key={technology.id}
                     className={`card relative h-full rounded-2xl border bg-white transition-all duration-300 hover:z-10 hover:shadow-lg motion-safe:hover:-translate-y-1 motion-safe:hover:scale-[1.02] motion-reduce:transition-none ${
-                                isAdded
-                                    ? 'border-pink-500 shadow-md'
-                                    : 'border-slate-100 shadow-sm hover:border-pink-300'
+                      isAdded
+                        ? "border-pink-500 shadow-md"
+                        : "border-slate-100 shadow-sm hover:border-pink-300"
                     }`}
                   >
                     <div className="card-body gap-0 p-5">
@@ -163,7 +161,7 @@ function Technologies() {
                         <span
                           className={`badge h-auto rounded-full border px-2 py-1 text-[10px] font-medium ${
                             badgeColors[technology.badge] ??
-                            'border-slate-200 bg-slate-50 text-slate-600'
+                            "border-slate-200 bg-slate-50 text-slate-600"
                           }`}
                         >
                           {technology.badge}
@@ -205,11 +203,11 @@ function Technologies() {
                         onClick={() => addToStack(technology)}
                         className="btn btn-sm mt-3 w-full rounded-md border-0 bg-[#0b0f1b] text-xs font-semibold text-white shadow-none hover:bg-slate-800 disabled:bg-pink-50 disabled:text-pink-600 disabled:opacity-100"
                       >
-                        {isAdded ? '✓ Added to Stack' : 'Add to Stack'}
+                        {isAdded ? "✓ Added to Stack" : "Add to Stack"}
                       </button>
                     </div>
                   </article>
-                )
+                );
               })}
             </div>
 
@@ -220,16 +218,13 @@ function Technologies() {
                   Your Stack
                 </h3>
 
-                <p
-                  aria-live="polite"
-                  className="mt-1 text-xs text-slate-400"
-                >
+                <p aria-live="polite" className="mt-1 text-xs text-slate-400">
                   {selectedStack.length === 0
-                    ? 'No technologies selected yet.'
+                    ? "No technologies selected yet."
                     : `${selectedStack.length} ${
                         selectedStack.length === 1
-                          ? 'technology'
-                          : 'technologies'
+                          ? "technology"
+                          : "technologies"
                       } selected`}
                 </p>
 
@@ -287,7 +282,7 @@ function Technologies() {
         )}
       </div>
     </section>
-  )
+  );
 }
 
-export default Technologies
+export default Technologies;
