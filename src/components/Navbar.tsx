@@ -12,8 +12,8 @@ function Navbar() {
   )
 
   return (
-    <header className="bg-white shadow-sm">
-      <nav className="relative mx-auto flex h-20 max-w-7xl items-center justify-between px-3 md:px-8">
+    <header className="bg-white shadow-sm sticky top-0 z-50">
+      <nav className="relative mx-auto flex h-18 max-w-7xl items-center justify-between px-2 md:px-8">
         {/* Mobile menu */}
         <div className="dropdown lg:hidden">
           <button
